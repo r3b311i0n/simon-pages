@@ -17,13 +17,13 @@
                 </h1>
             </div>
             <div class="col-xs-2">
-                <h3 class="h3 text-center ctrlBtn animated fadeIn">Start</h3>
+                <h3 class="h3 text-center ctrlBtn animated fadeIn" onclick="simon()">Start</h3>
             </div>
             <div class="col-xs-2">
-                <h3 class="h3 text-center ctrlBtn animated fadeIn">00</h3>
+                <h3 class="h3 text-center ctrlBtn animated fadeIn strictBtn" onclick="strictBtn()">Strict</h3>
             </div>
             <div class="col-xs-2">
-                <h3 class="h3 text-center ctrlBtn animated fadeIn">Strict</h3>
+                <h3 class="h3 text-center round animated fadeIn">00</h3>
             </div>
         </div>
     </div>
@@ -32,18 +32,18 @@
     <div class="container-fluid">
         <div class="row boxes">
             <div class="col-xs-6">
-                <div class="rect animated bounceIn redRect"></div>
+                <div class="rect animated bounceIn redRect" onclick="red()"></div>
             </div>
             <div class="col-xs-6">
-                <div class="rect animated bounceIn blueRect"></div>
+                <div class="rect animated bounceIn blueRect" onclick="blue()"></div>
             </div>
         </div>
         <div class="row boxes">
             <div class="col-xs-6">
-                <div class="rect animated bounceIn greenRect"></div>
+                <div class="rect animated bounceIn greenRect" onclick="green()"></div>
             </div>
             <div class="col-xs-6">
-                <div class="rect animated bounceIn yellowRect"></div>
+                <div class="rect animated bounceIn yellowRect" onclick="yellow()"></div>
             </div>
         </div>
     </div>
