@@ -41,6 +41,7 @@ main {
 }
 
 .logo {
+    cursor: default;
     font-family: 'Righteous', cursive;
 }
 
