@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url('https://fonts.googleapis.com/css?family=Unica+One');
+
 footer {
-    background: #3e3e3e;
+    background: rgba(36,36,36,1);
     bottom: 0;
     color: whitesmoke;
     position: relative;
@@ -27,6 +30,17 @@ main {
     -moz-border-radius: 32px 32px 32px 32px;
     -webkit-border-radius: 32px 32px 32px 32px;
     border: 2px solid whitesmoke;
+    font-family: 'Unica One', cursive;
+    transition-property: box-shadow;
+    transition-duration: 500ms;
+}
+
+.ctrlBtn:hover {
+    cursor: pointer;
+}
+
+.logo {
+    font-family: 'Righteous', cursive;
 }
 
 .rect {
@@ -46,8 +60,8 @@ main {
 
 .redRect:hover {
     cursor: pointer;
-    -webkit-box-shadow: 6px 3px 48px 4px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 6px 3px 48px 4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 6px 3px 48px 4px rgba(255, 0, 0, 0.75);
+    -moz-box-shadow: 6px 3px 48px 4px rgba(255, 0, 0, 0.75);
     box-shadow: 6px 3px 48px 4px rgba(255, 0, 0, 0.75);
 }
 
@@ -59,8 +73,8 @@ main {
 
 .blueRect:hover {
     cursor: pointer;
-    -webkit-box-shadow: 6px 3px 48px 4px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 6px 3px 48px 4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 6px 3px 48px 4px rgba(0, 0, 255, 0.75);
+    -moz-box-shadow: 6px 3px 48px 4px rgba(0, 0, 255, 0.75);
     box-shadow: 6px 3px 48px 4px rgba(0, 0, 255, 0.75);
 }
 
@@ -72,8 +86,8 @@ main {
 
 .greenRect:hover {
     cursor: pointer;
-    -webkit-box-shadow: 6px 3px 48px 4px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 6px 3px 48px 4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 6px 3px 48px 4px rgba(0, 255, 0, 0.75);
+    -moz-box-shadow: 6px 3px 48px 4px rgba(0, 255, 0, 0.75);
     box-shadow: 6px 3px 48px 4px rgba(0, 255, 0, 0.75);
 }
 
@@ -85,8 +99,8 @@ main {
 
 .yellowRect:hover {
     cursor: pointer;
-    -webkit-box-shadow: 6px 3px 48px 4px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 6px 3px 48px 4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 6px 3px 48px 4px rgba(255, 255, 0, 0.75);
+    -moz-box-shadow: 6px 3px 48px 4px rgba(255, 255, 0, 0.75);
     box-shadow: 6px 3px 48px 4px rgba(255, 255, 0, 0.75);
 }
 
