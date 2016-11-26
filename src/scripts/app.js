@@ -21,7 +21,7 @@ window.strictBtn = function () {
     console.log("is strict: " + isStrict);
 };
 
-function red () {
+function red() {
     sound1.play();
     return new Promise(function (resolve, reject) {
         sound1.onended = resolve;
@@ -29,7 +29,7 @@ function red () {
     });
 }
 
-function blue () {
+function blue() {
     sound2.play();
     return new Promise(function (resolve, reject) {
         sound2.onended = resolve;
@@ -37,7 +37,7 @@ function blue () {
     });
 }
 
-function green () {
+function green() {
     sound3.play();
     return new Promise(function (resolve, reject) {
         sound3.onended = resolve;
@@ -45,7 +45,7 @@ function green () {
     });
 }
 
-function yellow () {
+function yellow() {
     sound4.play();
     return new Promise(function (resolve, reject) {
         sound4.onended = resolve;
@@ -64,6 +64,11 @@ window.boxClick = async function (box) {
                 }
             }
             else {
+                if (isStrict === true) {
+                    start();
+                }
+                await mistake();
+                counter = 0;
                 memory();
             }
             break;
@@ -76,6 +81,11 @@ window.boxClick = async function (box) {
                 }
             }
             else {
+                if (isStrict === true) {
+                    start();
+                }
+                await mistake();
+                counter = 0;
                 memory();
             }
             break;
@@ -88,6 +98,11 @@ window.boxClick = async function (box) {
                 }
             }
             else {
+                if (isStrict === true) {
+                    start();
+                }
+                await mistake();
+                counter = 0;
                 memory();
             }
             break;
@@ -100,33 +115,52 @@ window.boxClick = async function (box) {
                 }
             }
             else {
+                if (isStrict === true) {
+                    start();
+                }
+                await mistake();
+                counter = 0;
                 memory();
             }
             break;
     }
 };
 
+function mistake() {
+    return new Promise(function (resolve) {
+        $(".round").html("!!").addClass("flash");
+        window.setTimeout(function () {
+            $(".round").removeClass("flash").html(roundNo);
+            resolve();
+        }, 800);
+    });
+}
+
 async function memory() {
     for (let i = 0; i < arr.length; ++i) {
         switch (arr[i]) {
             case "red":
                 $(".redRect").addClass("redGlow");
-                await red();
+                await
+                    red();
                 $(".redRect").removeClass("redGlow");
                 break;
             case "blue":
                 $(".blueRect").addClass("blueGlow");
-                await blue();
+                await
+                    blue();
                 $(".blueRect").removeClass("blueGlow");
                 break;
             case "green":
                 $(".greenRect").addClass("greenGlow");
-                await green();
+                await
+                    green();
                 $(".greenRect").removeClass("greenGlow");
                 break;
             case "yellow":
                 $(".yellowRect").addClass("yellowGlow");
-                await yellow();
+                await
+                    yellow();
                 $(".yellowRect").removeClass("yellowGlow");
                 break;
         }
