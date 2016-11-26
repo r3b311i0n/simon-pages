@@ -42,6 +42,10 @@ main {
     color: #ff3e57;
 }
 
+.strict {
+    color: #ff3e57;
+}
+
 .logo {
     cursor: default;
     font-family: 'Righteous', cursive;
@@ -75,6 +79,12 @@ main {
     box-shadow: 6px 3px 48px 4px rgba(255, 0, 0, 0.75);
 }
 
+.redGlow {
+    -webkit-box-shadow: 6px 3px 48px 4px rgba(255, 0, 0, 0.75);
+    -moz-box-shadow: 6px 3px 48px 4px rgba(255, 0, 0, 0.75);
+    box-shadow: 6px 3px 48px 4px rgba(255, 0, 0, 0.75);
+}
+
 .blueRect {
     background: #0000c3;
     transition-property: box-shadow;
@@ -83,6 +93,12 @@ main {
 
 .blueRect:hover {
     cursor: pointer;
+    -webkit-box-shadow: 6px 3px 48px 4px rgba(0, 0, 255, 0.75);
+    -moz-box-shadow: 6px 3px 48px 4px rgba(0, 0, 255, 0.75);
+    box-shadow: 6px 3px 48px 4px rgba(0, 0, 255, 0.75);
+}
+
+.blueGlow {
     -webkit-box-shadow: 6px 3px 48px 4px rgba(0, 0, 255, 0.75);
     -moz-box-shadow: 6px 3px 48px 4px rgba(0, 0, 255, 0.75);
     box-shadow: 6px 3px 48px 4px rgba(0, 0, 255, 0.75);
@@ -101,6 +117,12 @@ main {
     box-shadow: 6px 3px 48px 4px rgba(0, 255, 0, 0.75);
 }
 
+.greenGlow {
+    -webkit-box-shadow: 6px 3px 48px 4px rgba(0, 255, 0, 0.75);
+    -moz-box-shadow: 6px 3px 48px 4px rgba(0, 255, 0, 0.75);
+    box-shadow: 6px 3px 48px 4px rgba(0, 255, 0, 0.75);
+}
+
 .yellowRect {
     background: #c3c300;
     transition-property: box-shadow;
@@ -109,6 +131,12 @@ main {
 
 .yellowRect:hover {
     cursor: pointer;
+    -webkit-box-shadow: 6px 3px 48px 4px rgba(255, 255, 0, 0.75);
+    -moz-box-shadow: 6px 3px 48px 4px rgba(255, 255, 0, 0.75);
+    box-shadow: 6px 3px 48px 4px rgba(255, 255, 0, 0.75);
+}
+
+.yellowGlow {
     -webkit-box-shadow: 6px 3px 48px 4px rgba(255, 255, 0, 0.75);
     -moz-box-shadow: 6px 3px 48px 4px rgba(255, 255, 0, 0.75);
     box-shadow: 6px 3px 48px 4px rgba(255, 255, 0, 0.75);

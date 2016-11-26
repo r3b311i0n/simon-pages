@@ -8,6 +8,7 @@ const sound4 = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
 let isStrict = false;
 let roundNo = 0;
 let arr = [];
+let counter = 0;
 
 function main() {
     $(".ctrlBtn").removeClass("fadeIn");
@@ -16,59 +17,124 @@ function main() {
 
 window.strictBtn = function () {
     isStrict = !isStrict;
-    $(".strictBtn").toggleClass("pulse infinite");
+    $(".strictBtn").toggleClass("pulse infinite strict");
     console.log("is strict: " + isStrict);
 };
 
-window.red = async function () {
+function red () {
     sound1.play();
     return new Promise(function (resolve, reject) {
         sound1.onended = resolve;
         sound1.onerror = reject;
-    });};
+    });
+}
 
-window.blue = async function () {
+function blue () {
     sound2.play();
     return new Promise(function (resolve, reject) {
         sound2.onended = resolve;
         sound2.onerror = reject;
-    });};
+    });
+}
 
-window.green = async function () {
+function green () {
     sound3.play();
     return new Promise(function (resolve, reject) {
         sound3.onended = resolve;
         sound3.onerror = reject;
-    });};
+    });
+}
 
-window.yellow = async function () {
+function yellow () {
     sound4.play();
     return new Promise(function (resolve, reject) {
         sound4.onended = resolve;
         sound4.onerror = reject;
     });
+}
+
+window.boxClick = async function (box) {
+    switch (box) {
+        case "red":
+            await red();
+            if (arr[counter] === "red") {
+                counter++;
+                if (counter >= arr.length) {
+                    simon();
+                }
+            }
+            else {
+                memory();
+            }
+            break;
+        case "blue":
+            await blue();
+            if (arr[counter] === "blue") {
+                counter++;
+                if (counter >= arr.length) {
+                    simon();
+                }
+            }
+            else {
+                memory();
+            }
+            break;
+        case "green":
+            await green();
+            if (arr[counter] === "green") {
+                counter++;
+                if (counter >= arr.length) {
+                    simon();
+                }
+            }
+            else {
+                memory();
+            }
+            break;
+        case "yellow":
+            await yellow();
+            if (arr[counter] === "yellow") {
+                counter++;
+                if (counter >= arr.length) {
+                    simon();
+                }
+            }
+            else {
+                memory();
+            }
+            break;
+    }
 };
 
 async function memory() {
     for (let i = 0; i < arr.length; ++i) {
         switch (arr[i]) {
             case "red":
+                $(".redRect").addClass("redGlow");
                 await red();
+                $(".redRect").removeClass("redGlow");
                 break;
             case "blue":
+                $(".blueRect").addClass("blueGlow");
                 await blue();
+                $(".blueRect").removeClass("blueGlow");
                 break;
             case "green":
+                $(".greenRect").addClass("greenGlow");
                 await green();
+                $(".greenRect").removeClass("greenGlow");
                 break;
             case "yellow":
+                $(".yellowRect").addClass("yellowGlow");
                 await yellow();
+                $(".yellowRect").removeClass("yellowGlow");
                 break;
         }
     }
 }
 
-window.simon = async function () {
+function simon() {
+    counter = 0;
     let rand = Math.floor((Math.random() * 4) + 1);
     console.log("Strict = " + isStrict + " Rand = " + rand);
     switch (rand) {
@@ -87,7 +153,15 @@ window.simon = async function () {
     }
     roundNo++;
     $(".round").html(roundNo);
-    await memory();
+    memory();
+}
+
+window.start = function () {
+    arr = [];
+    roundNo = 0;
+    $(".round").html("00");
+    simon();
+    $(".start").html("Restart");
 };
 
 $(document).ready(main());
