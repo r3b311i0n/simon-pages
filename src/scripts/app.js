@@ -1,3 +1,6 @@
+import "babel-polyfill";
+require("../styles/css/styles.css");
+
 let isStrict = false;
 let roundNo = 0;
 let arr = [];
@@ -7,30 +10,31 @@ function main() {
     $(".round").removeClass("fadeIn");
 }
 
-function strictBtn() {
+window.strictBtn = function () {
     isStrict = !isStrict;
     $(".strictBtn").toggleClass("pulse infinite");
-}
+    console.log("is strict: " + isStrict);
+};
 
-function red() {
+window.red = function () {
     let sound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
     sound.play();
-}
+};
 
-function blue() {
+window.blue = function () {
     let sound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
     sound.play();
-}
+};
 
-function green() {
+window.green = function () {
     let sound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
     sound.play();
-}
+};
 
-function yellow() {
+window.yellow = function () {
     let sound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
     sound.play();
-}
+};
 
 function memory() {
     for (let i = 0; i < arr.length; ++i) {
@@ -51,7 +55,7 @@ function memory() {
     }
 }
 
-function simon() {
+window.simon = function () {
     let rand = Math.floor((Math.random() * 4) + 1);
     console.log("Strict = " + isStrict + " Rand = " + rand);
     switch (rand) {
@@ -71,6 +75,6 @@ function simon() {
     roundNo++;
     $(".round").html(roundNo);
     memory();
-}
+};
 
 $(document).ready(main());
