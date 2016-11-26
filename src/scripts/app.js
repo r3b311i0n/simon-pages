@@ -9,6 +9,7 @@ let isStrict = false;
 let roundNo = 0;
 let arr = [];
 let counter = 0;
+let won = false;
 
 function main() {
     $(".ctrlBtn").removeClass("fadeIn");
@@ -54,6 +55,9 @@ function yellow() {
 }
 
 window.boxClick = async function (box) {
+    if (won) {
+        return;
+    }
     switch (box) {
         case "red":
             await red();
@@ -126,6 +130,15 @@ window.boxClick = async function (box) {
     }
 };
 
+function winner() {
+    if (roundNo > 20) {
+        $(".round").html("YOU WIN!!!").addClass("flash");
+        won = true;
+        return true;
+    }
+    return false;
+}
+
 function mistake() {
     return new Promise(function (resolve) {
         $(".round").html("!!").addClass("flash");
@@ -169,31 +182,34 @@ async function memory() {
 
 function simon() {
     counter = 0;
-    let rand = Math.floor((Math.random() * 4) + 1);
-    console.log("Strict = " + isStrict + " Rand = " + rand);
-    switch (rand) {
-        case 1:
-            arr.push("red");
-            break;
-        case 2:
-            arr.push("blue");
-            break;
-        case 3:
-            arr.push("green");
-            break;
-        case 4:
-            arr.push("yellow");
-            break;
-    }
     roundNo++;
-    $(".round").html(roundNo);
-    memory();
+    if (!winner()) {
+        let rand = Math.floor((Math.random() * 4) + 1);
+        console.log("Strict = " + isStrict + " Rand = " + rand);
+        switch (rand) {
+            case 1:
+                arr.push("red");
+                break;
+            case 2:
+                arr.push("blue");
+                break;
+            case 3:
+                arr.push("green");
+                break;
+            case 4:
+                arr.push("yellow");
+                break;
+        }
+        $(".round").html(roundNo);
+        memory();
+    }
 }
 
 window.start = function () {
+    won = false;
     arr = [];
     roundNo = 0;
-    $(".round").html("00");
+    $(".round").html("00").removeClass("flash");
     simon();
     $(".start").html("Restart");
 };
