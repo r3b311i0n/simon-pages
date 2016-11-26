@@ -1,5 +1,9 @@
-import "babel-polyfill";
 require("../styles/css/styles.css");
+
+const sound1 = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
+const sound2 = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
+const sound3 = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
+const sound4 = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
 
 let isStrict = false;
 let roundNo = 0;
@@ -16,46 +20,55 @@ window.strictBtn = function () {
     console.log("is strict: " + isStrict);
 };
 
-window.red = function () {
-    let sound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
-    sound.play();
+window.red = async function () {
+    sound1.play();
+    return new Promise(function (resolve, reject) {
+        sound1.onended = resolve;
+        sound1.onerror = reject;
+    });};
+
+window.blue = async function () {
+    sound2.play();
+    return new Promise(function (resolve, reject) {
+        sound2.onended = resolve;
+        sound2.onerror = reject;
+    });};
+
+window.green = async function () {
+    sound3.play();
+    return new Promise(function (resolve, reject) {
+        sound3.onended = resolve;
+        sound3.onerror = reject;
+    });};
+
+window.yellow = async function () {
+    sound4.play();
+    return new Promise(function (resolve, reject) {
+        sound4.onended = resolve;
+        sound4.onerror = reject;
+    });
 };
 
-window.blue = function () {
-    let sound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
-    sound.play();
-};
-
-window.green = function () {
-    let sound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
-    sound.play();
-};
-
-window.yellow = function () {
-    let sound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
-    sound.play();
-};
-
-function memory() {
+async function memory() {
     for (let i = 0; i < arr.length; ++i) {
         switch (arr[i]) {
             case "red":
-                red();
+                await red();
                 break;
             case "blue":
-                blue();
+                await blue();
                 break;
             case "green":
-                green();
+                await green();
                 break;
             case "yellow":
-                yellow();
+                await yellow();
                 break;
         }
     }
 }
 
-window.simon = function () {
+window.simon = async function () {
     let rand = Math.floor((Math.random() * 4) + 1);
     console.log("Strict = " + isStrict + " Rand = " + rand);
     switch (rand) {
@@ -74,7 +87,7 @@ window.simon = function () {
     }
     roundNo++;
     $(".round").html(roundNo);
-    memory();
+    await memory();
 };
 
 $(document).ready(main());
